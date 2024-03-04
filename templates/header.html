@@ -1,0 +1,12 @@
+    {% load static %}
+    <div class="header">
+        <div class="container">
+            {% include 'menu.html' %}
+
+            {% block banner %}
+
+            {% comment %} {% include "banner_layout.html" %} {% endcomment %}
+ 
+            {% endblock banner %}
+        </div>
+    </div>
