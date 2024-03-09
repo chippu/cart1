@@ -12,6 +12,13 @@ def show_cart(request):
         )
     context={'cart':cart_obj}
     return render(request,'cart.html',context)
+
+def remove_item_from_cart(request,pk):
+    item=OrderedItem.objects.get(pk=pk)
+    if item:
+        item.delete()
+    return redirect('cart')    
+
 def add_to_cart(request):
     if request.POST:
         user=request.user
@@ -35,4 +42,5 @@ def add_to_cart(request):
             ordered_item.save()        
             
     return redirect('cart')
+
 
